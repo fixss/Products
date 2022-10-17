@@ -10,7 +10,7 @@ class Main {
         String[] products = {"Bread", "Cornflakes", "Milk", "Eggs", "Meat"};
         int[] prices = {50, 200, 100, 120, 500};
         Basket store = new Basket(prices, products);
-        Basket.setArrayBasket(products.length);
+        store.setArrayBasket(products.length);
         String textFileBasket = "D:\\Repository\\Products/basket.txt";
         File basketText = new File("basket.txt");
         if ((basketText).exists()) {
