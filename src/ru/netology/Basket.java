@@ -5,7 +5,7 @@ import java.io.*;
 public class Basket {
     protected int[] prices;
     protected String[] products;
-    private int[] arrayBasket;
+    private static int[] arrayBasket;
     private int sumProducts = 0;
 
     public Basket(int[] prices, String[] products) {
@@ -43,11 +43,11 @@ public class Basket {
         }
     }
 
-    public void loadFromTxtFile(File textFile) throws IOException {
+    public static void loadFromTxtFile(File textFile) throws IOException {
         try (BufferedReader in = new BufferedReader(new FileReader(textFile))) {
             String[] itemSplit = in.readLine().split(" ");
             for (int i = 0; i < itemSplit.length; i++) {
-                this.arrayBasket[i] = Integer.parseInt(itemSplit[i]);
+                arrayBasket[i] = Integer.parseInt(itemSplit[i]);
             }
         }
     }
