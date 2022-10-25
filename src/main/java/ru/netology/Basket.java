@@ -53,7 +53,7 @@ public class Basket {
             for (int i = 0; i < itemSplit.length; i++) {
                 arrayBasket[i] = Integer.parseInt(itemSplit[i]);
             }
-        }catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("File: D:\\Repository\\Products/basket.txt is damaged or wrong path");
             throw new RuntimeException(e);
         }
@@ -66,19 +66,20 @@ public class Basket {
             Gson gson = gsonBuilder.create();
             String json = gson.toJson(this);
             out.println(json);
-        }catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("File: D:\\Repository\\Products/basket.json is missing or wrong path");
             throw new RuntimeException(e);
         }
     }
+
     public static Basket loadFromJsonFile(File jsonFile) throws IOException {
         try (BufferedReader in = new BufferedReader(new FileReader(jsonFile))) {
             Gson gsonBuilder = new Gson();
             Basket basket = gsonBuilder.fromJson(in, Basket.class);
             return basket;
-            }catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("File: D:\\Repository\\Products/basket.json is damaged or wrong path");
             throw new RuntimeException(e);
         }
-        }
     }
+}
